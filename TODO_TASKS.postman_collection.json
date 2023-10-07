@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "233ce72f-20ca-42fd-9858-6bb95aa6d0dd",
+		"name": "TODO_TASKS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Sign In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"admin@gmail.com\",\n    \"password\":\"Pass@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/signin",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"signin"
+							]
+						},
+						"description": "This API allows users to log in using just their email and password, streamlining the authentication process for easy access to the application."
+					},
+					"response": []
+				},
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"admin2@gmail.com\",\n    \"password\":\"Pass@123\",\n    \"name\":\"Gopal\",\n    \"address\":\"Bandra East Mumbai\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user/signup",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user",
+								"signup"
+							]
+						},
+						"description": "This API, users can sign up effortlessly by providing only their email, name, address, and password, simplifying the registration process while ensuring essential account information is captured"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Create task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "subtitle",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/task/create",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"task",
+								"create"
+							]
+						},
+						"description": "This API, users can effortlessly create tasks by providing only the essential details of title, subtitle, and image, ensuring a simplified task creation process."
+					},
+					"response": []
+				},
+				{
+					"name": "update task",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "title",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "subtitle",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "taskId",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/task/update",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"task",
+								"update"
+							]
+						},
+						"description": "This API empowers users to update tasks with ease, requiring only the title, subtitle, and image, providing a straightforward approach to task management."
+					},
+					"response": []
+				},
+				{
+					"name": "get tasks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiYWRtaW4yQGdtYWlsLmNvbSJ9LCJpYXQiOjE2OTY2ODE1NzMsImV4cCI6MTY5NjY4NTE3M30.jtgSCW-H62Muy-k_0o-q6lP2ev-tTWWhAvJLwNAiUng",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/home/gopal/Downloads/declartion  (1).jpg"
+								},
+								{
+									"key": "title",
+									"value": "Super man",
+									"type": "text"
+								},
+								{
+									"key": "subtitle",
+									"value": "Super man",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/task/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"task",
+								""
+							]
+						},
+						"description": "This API enables users to access their personal tasks exclusively, ensuring that they cannot retrieve tasks belonging to other users, thus preserving data privacy and security."
+					},
+					"response": []
+				},
+				{
+					"name": "delete tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "Super man",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "subtitle",
+									"value": "Super man",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/task/:taskId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"task",
+								":taskId"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": "3"
+								}
+							]
+						},
+						"description": "This API offers seamless task deletion, requiring only the taskId as input, streamlining the process for efficient task management."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
